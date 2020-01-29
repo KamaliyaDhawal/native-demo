@@ -6,7 +6,7 @@ export const globleStyle = StyleSheet.create({
     },
     tabsContainer: {
         flexDirection: "row",
-        backgroundColor: '#111',
+        backgroundColor: 'black',
         paddingTop: 16,
         paddingBottom: 16,
         paddingLeft: 30,
@@ -23,11 +23,13 @@ export const globleStyle = StyleSheet.create({
         paddingBottom: 12,
         paddingLeft: 12,
         paddingRight: 12,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: 'black'
     },
     headerText: {
         color: '#fff',
-        fontSize: 28
+        fontSize: 28,
+        fontWeight: 'bold'
     },
     headerIcon: {
         marginRight: 4,
@@ -35,9 +37,33 @@ export const globleStyle = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: '#222'
+        backgroundColor: '#333'
     },
     textContainer: {
       flex: 1
+    },
+    cardContainer: {
+        height: 170,
+        width: 250,
+        borderRadius: 4
+    },
+    sliderImage: {
+        height: 130,
+        width: 160,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 10,
+    },
+    sliderText: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+        alignSelf: 'center'
+    },
+    sliderTitle: {
+        margin: 10,
+        fontSize: 24,
+        color: '#888',
+        fontWeight: 'bold',
     }
 })

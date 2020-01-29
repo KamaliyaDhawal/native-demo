@@ -7,8 +7,8 @@ export default function Tabs({ navigation, id=1 }) {
     const styles = globleStyle;
     const ref = React.createRef();
     const [activeScreen, changeActiveScreen] = useState(1);
-    const defaultIconColor = 'darkgray';
-    const activeIconColor = '#fff';
+    const defaultIconColor = 'gray';
+    const activeIconColor = '#ffffff';
     return(
         <View style={styles.tabsContainer}>
             <Octicons

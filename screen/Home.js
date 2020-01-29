@@ -2,8 +2,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import Tabs from '../component/Tabs';
+import Slider from '../component/Slider';
 import Header from '../component/Header';
 import { globleStyle } from '../assets/styles/global';
+import { categories } from '../source/categories/data';
 
 export default function Home({navigation}) {
     const styles = globleStyle;
@@ -11,9 +13,18 @@ export default function Home({navigation}) {
         <View style={styles.container}>
             <Header title="Channel Finder" navigation={navigation} />
             <View style={styles.textContainer}>
-                <Text>
-                    Home Screen
-                </Text>
+                <Text style={styles.sliderTitle}>Oprators</Text>
+                <Slider
+                    data={categories}
+                    horizontal={true}
+                /> 
+            </View>
+            <View style={styles.textContainer}>
+                <Text style={styles.sliderTitle}>Categories</Text>
+                <Slider
+                    data={categories}
+                    horizontal={true}
+                /> 
             </View>
             <Tabs navigation={ navigation } id={1}/>
         </View>

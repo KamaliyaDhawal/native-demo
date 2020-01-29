@@ -10,11 +10,9 @@ export default function Category({navigation}) {
     return(
         <View style={styles.container}>
             <Header title="Categories" navigation={navigation} />
-            <View style={styles.textContainer}>
-                <Text>
-                    Category Screen
-                </Text>
-            </View>
+                <View style={styles.textContainer}>
+                   <Text>Categories Screen</Text>
+                </View>
             <Tabs navigation={ navigation } id={3}/>
         </View>
     )

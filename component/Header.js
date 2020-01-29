@@ -16,7 +16,7 @@ export default function Header({ navigation, title }) {
                 <View>
                     <FontAwesome
                         name = "ellipsis-v"
-                        color = '#fff'
+                        color = 'gray'
                         size = {28}
                         style = {styles.headerIcon}
                         onPress={()=>{
