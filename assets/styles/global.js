@@ -1,5 +1,8 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, Dimensions } from 'react-native';
+const width = Math.round(Dimensions.get('window').width);
+const height = Math.round(Dimensions.get('window').height);
+console.log('width', (width-40)/2);
+console.log('height', height);
 export const globleStyle = StyleSheet.create({
     container: {
         flex: 1,
@@ -33,6 +36,7 @@ export const globleStyle = StyleSheet.create({
     },
     headerIcon: {
         marginRight: 4,
+        marginLeft: 14,
         marginTop: 10
     },
     container: {
@@ -42,16 +46,12 @@ export const globleStyle = StyleSheet.create({
     textContainer: {
       flex: 1
     },
-    cardContainer: {
-        height: 170,
-        width: 250,
-        borderRadius: 4
-    },
     sliderImage: {
-        height: 130,
-        width: 160,
-        marginLeft: 10,
-        marginRight: 10,
+        // height: (75*(width-40)/2)/100,
+        width: (width-40)/2,
+        height: (width-40)/2,
+        margin: 10,
+        // marginRight: 10,
         borderRadius: 10,
     },
     sliderText: {
@@ -61,9 +61,30 @@ export const globleStyle = StyleSheet.create({
         alignSelf: 'center'
     },
     sliderTitle: {
-        margin: 10,
+        marginTop: 10,
+        marginLeft: 10,
         fontSize: 24,
         color: '#888',
         fontWeight: 'bold',
+    },
+    deviderContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    devider: {
+        marginTop: 25,
+        marginBottom: 15,
+        marginRight: 5,
+        borderBottomColor: 'gray',
+        borderBottomWidth: 1,
+        width: (width*20)/100
+    },
+    titleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    detailClickableIcon: {
+        marginLeft: 10,
+        marginTop: 13
     }
 })

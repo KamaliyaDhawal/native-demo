@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 import Tabs from '../component/Tabs';
 import Slider from '../component/Slider';
 import Header from '../component/Header';
+import Devider from '../component/Devider';
 import { globleStyle } from '../assets/styles/global';
 import { categories } from '../source/categories/data';
 
@@ -13,18 +15,45 @@ export default function Home({navigation}) {
         <View style={styles.container}>
             <Header title="Channel Finder" navigation={navigation} />
             <View style={styles.textContainer}>
-                <Text style={styles.sliderTitle}>Oprators</Text>
-                <Slider
-                    data={categories}
-                    horizontal={true}
-                /> 
-            </View>
-            <View style={styles.textContainer}>
-                <Text style={styles.sliderTitle}>Categories</Text>
-                <Slider
-                    data={categories}
-                    horizontal={true}
-                /> 
+                <ScrollView>
+                    <View style={styles.titleContainer} >
+                        <Text style={styles.sliderTitle}>Oprators</Text>
+                        <TouchableOpacity>
+                            <Feather
+                                name="arrow-right-circle"
+                                size={24}
+                                color='#999'
+                                style={styles.detailClickableIcon}
+                                onPress={()=>{
+                                    navigation.navigate('Oprator');
+                                }}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <Slider
+                        data={categories}
+                        horizontal={true}
+                    />
+                    <Devider/>
+                    <View style={styles.titleContainer} >
+                        <Text style={styles.sliderTitle}>Categories</Text>
+                        <TouchableOpacity>
+                            <Feather
+                                name="arrow-right-circle"
+                                size={24}
+                                color='#999'
+                                style={styles.detailClickableIcon}
+                                onPress={()=>{
+                                    navigation.navigate('Category');
+                                }}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <Slider
+                        data={categories}
+                        horizontal={true}
+                    />
+                </ScrollView>
             </View>
             <Tabs navigation={ navigation } id={1}/>
         </View>
