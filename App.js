@@ -9,7 +9,7 @@ const styles = globleStyle;
 export default function App({ navigation }) {
   return (
     <View style={styles.container}>
-      <Navigation />
+        <Navigation />
     </View>
   );
 }

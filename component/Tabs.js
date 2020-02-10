@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { FontAwesome, Octicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
 import { globleStyle } from '../assets/styles/global';
 
 export default function Tabs({ navigation, id=1 }) {
@@ -11,7 +11,7 @@ export default function Tabs({ navigation, id=1 }) {
     const activeIconColor = '#ffffff';
     return(
         <View style={styles.tabsContainer}>
-            <Octicons
+            <MaterialCommunityIcons
                 name = "radio-tower"
                 color = {id===2? activeIconColor:defaultIconColor}
                 size = {id===2? 40:30}
@@ -20,7 +20,7 @@ export default function Tabs({ navigation, id=1 }) {
                     navigation.navigate('Oprator');
                 }}
             />
-            <FontAwesome
+            {/* <FontAwesome
                 name = "list-ul"
                 color = {id===3? activeIconColor:defaultIconColor}
                 size = {id===3? 40:30}
@@ -28,8 +28,8 @@ export default function Tabs({ navigation, id=1 }) {
                 onPress = { () => {
                     navigation.navigate('Category');
                 }}
-            />
-            <FontAwesome
+            /> */}
+            <MaterialCommunityIcons    
                 name = "home"
                 color = {id===1? activeIconColor:defaultIconColor}
                 size = {id===1? 40:30}
@@ -38,7 +38,7 @@ export default function Tabs({ navigation, id=1 }) {
                     navigation.navigate('Home');
                 }}
             />
-            <FontAwesome
+            {/* <FontAwesome
                 name = "heart"
                 color = {id===4? 'red':defaultIconColor}
                 size = {id===4? 40:30}
@@ -46,8 +46,8 @@ export default function Tabs({ navigation, id=1 }) {
                 onPress = { () => {
                     navigation.navigate('Favorite');
                 }}
-            />
-            <FontAwesome
+            /> */}
+            {/* <FontAwesome
                     name = "filter"
                     color = 'gray'
                     size = {30}
@@ -55,7 +55,16 @@ export default function Tabs({ navigation, id=1 }) {
                     onPress = { () => {
                         alert('test');
                     }}
-                />
+                /> */}
+            <MaterialCommunityIcons
+                name = "grid-large"
+                color = {id===3? activeIconColor:defaultIconColor}
+                size = {id===3? 40:30}
+                style = {styles.tabsIcon}
+                onPress = { () => {
+                    navigation.navigate('Category');
+                }}
+            />
         </View>
     )
 }

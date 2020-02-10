@@ -33,6 +33,7 @@ export default function Home({navigation}) {
                     <Slider
                         data={categories}
                         horizontal={true}
+                        page = 'home'
                     />
                     <Devider/>
                     <View style={styles.titleContainer} >
@@ -52,6 +53,7 @@ export default function Home({navigation}) {
                     <Slider
                         data={categories}
                         horizontal={true}
+                        page = 'home'
                     />
                 </ScrollView>
             </View>
