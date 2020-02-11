@@ -1,0 +1,18 @@
+export const channels = [
+    { key: '1', name: 'Start Sport', category: '3', oprator:'1', number: '222', hd: '1'},
+    { key: '2', name: 'Start Movie', category: '2', oprator:'2', number: '120', hd: '1'},
+    { key: '3', name: 'Pogo', category: '5', oprator:'3', number: '122', hd: '1'},
+    { key: '4', name: 'Ten Sport', category: '3', oprator:'4', number: '212', hd: '1'},
+    { key: '5', name: 'Nap TOl', category: '8', oprator:'5', number: '22', hd: '1'},
+    { key: '6', name: 'Fashion', category: '9', oprator:'6', number: '2', hd: '1'},
+    { key: '7', name: 'Zee Cinema', category: '1', oprator:'7', number: '301', hd: '1'},
+    { key: '8', name: 'Sony Mix', category: '4', oprator:'7', number: '4', hd: '1'},
+    { key: '9', name: 'Zee News', category: '6', oprator:'1', number: '11', hd: '1'},
+    { key: '10', name: 'Discovery', category: '7', oprator:'2', number: '44', hd: '1'},
+    { key: '11', name: 'Bhagti', category: '10', oprator:'3', number: '444', hd: '1'},
+    { key: '12', name: 'Khana Khajana', category: '11', oprator:'4', number: '200', hd: '1'},
+    { key: '13', name: 'Aashtha', category: '12', oprator:'5', number: '33', hd: '1'},
+    { key: '14', name: 'Sony', category: '2', oprator:'6', number: '333', hd: '1'},
+    { key: '15', name: 'ABP News', category: '6', oprator:'7', number: '45', hd: '1'},
+    { key: '16', name: 'Shop HQ', category: '8', oprator:'7', number: '789', hd: '1'},
+]

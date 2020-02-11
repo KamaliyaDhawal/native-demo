@@ -4,6 +4,7 @@ import Home from '../screen/Home';
 import Oprator from '../screen/Oprator';
 import Category from '../screen/Category';
 import Favorite from '../screen/Favorite';
+import ChannelList from '../screen/ChannelList';
 
 const screen={
     Home: {
@@ -20,6 +21,9 @@ const screen={
     },
     Favorite: {
         screen: Favorite,
+    },
+    ChannelList: {
+        screen: ChannelList,
     }
 }
 

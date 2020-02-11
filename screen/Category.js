@@ -9,17 +9,16 @@ import { categories } from '../source/categories/data';
 
 export default function Category({navigation}) {
     const styles = globleStyle;
-    function search(string) {
-        alert(string);
-    }
     return(
         <View style={styles.container}>
-            <Header title="Categories" navigation={navigation} searchFn={search} />
+            <Header title="Categories" navigation={navigation} />
             <View style={styles.textContainer}>
                 <Slider
                     data={categories}
                     horizontal={false}
                     page = 'category'
+                    sliderName = 'categories'
+                    navigation={navigation}
                 />
             </View>
             <Tabs navigation={ navigation } id={3}/>

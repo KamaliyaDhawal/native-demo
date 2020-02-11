@@ -1,10 +1,9 @@
-import { createAppContainer } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
-
 import Home from './stack/Home';
 import Oprator from './stack/Oprator';
-import Category from './stack/Category';
 import Favorite from './stack/Favorite';
+import Category from './stack/Category';
+import { createAppContainer } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 const screen = {
     Home: {
@@ -21,4 +20,6 @@ const screen = {
     },
 }
 
-export default createAppContainer(createDrawerNavigator(screen));
+export default createAppContainer(createDrawerNavigator(screen, {
+    initialRouteName: 'Home',
+}));

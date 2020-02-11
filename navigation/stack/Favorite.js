@@ -1,5 +1,5 @@
-import { createStackNavigator } from 'react-navigation-stack';
 import Favorite from '../../screen/Favorite';
+import { createStackNavigator } from 'react-navigation-stack';
 
 const screen={
     Favorite: {

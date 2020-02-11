@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 import Tabs from '../component/Tabs';
 import Slider from '../component/Slider';
@@ -8,6 +8,7 @@ import Header from '../component/Header';
 import Devider from '../component/Devider';
 import { globleStyle } from '../assets/styles/global';
 import { categories } from '../source/categories/data';
+import { oprators } from '../source/oprators/data';
 
 export default function Home({navigation}) {
     const styles = globleStyle;
@@ -19,8 +20,8 @@ export default function Home({navigation}) {
                     <View style={styles.titleContainer} >
                         <Text style={styles.sliderTitle}>Oprators</Text>
                         <TouchableOpacity>
-                            <Feather
-                                name="arrow-right-circle"
+                            <AntDesign
+                                name="rightcircleo"
                                 size={24}
                                 color='#999'
                                 style={styles.detailClickableIcon}
@@ -31,16 +32,18 @@ export default function Home({navigation}) {
                         </TouchableOpacity>
                     </View>
                     <Slider
-                        data={categories}
+                        data={oprators}
                         horizontal={true}
                         page = 'home'
+                        navigation={navigation}
+                        sliderName='oprators'
                     />
                     <Devider/>
                     <View style={styles.titleContainer} >
                         <Text style={styles.sliderTitle}>Categories</Text>
                         <TouchableOpacity>
-                            <Feather
-                                name="arrow-right-circle"
+                            <AntDesign
+                                name="rightcircleo"
                                 size={24}
                                 color='#999'
                                 style={styles.detailClickableIcon}
@@ -54,6 +57,8 @@ export default function Home({navigation}) {
                         data={categories}
                         horizontal={true}
                         page = 'home'
+                        navigation={navigation}
+                        sliderName='categories'
                     />
                 </ScrollView>
             </View>

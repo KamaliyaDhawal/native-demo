@@ -1,17 +1,13 @@
 import { StyleSheet, Dimensions } from 'react-native';
 const width = Math.round(Dimensions.get('window').width);
 const height = Math.round(Dimensions.get('window').height);
-console.log('width', (200*100)/(width)); 
 
 export const globleStyle = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
     tabsContainer: {
         flexDirection: "row",
         backgroundColor: 'black',
-        paddingTop: 16,
-        paddingBottom: 16,
+        paddingTop: 4,
+        paddingBottom: 4,
         paddingLeft: 30,
         paddingRight: 30,
         justifyContent: 'space-between'
@@ -192,4 +188,31 @@ export const globleStyle = StyleSheet.create({
         paddingLeft: 16,
         fontSize: 16
     },
+    channelListingContainer: {
+        height: height/5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: 'red',
+        shadowOffset: { width: 10, height: 10 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,  
+        elevation: 5
+    },
+    channelListingText: {
+        color: '#999',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    channelNumberContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignSelf: 'center',
+        padding: 10
+    },
+    channelListHeader: {
+        fontSize: 34,
+        color: '#fff',
+        fontWeight: 'bold'
+    }
 })
