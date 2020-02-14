@@ -275,7 +275,7 @@ export const globleStyle = StyleSheet.create({
         borderTopColor: '#EFF0F1'
     },
     favoritePageImage: {
-        width: width-50,
-        height: height-50
+        width: width/8,
+        height: width/8
     }
 })
