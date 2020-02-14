@@ -13,7 +13,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function ChannelList({navigation}) {
     const styles = globleStyle;
     const filter = navigation.getParam('filter');
+    const searchText = navigation.getParam('searchText');
     
+    const colors = [ '#FF4336', '#FF216B', '#EC7FFF', '#80C6FF', '#AE80FF', '#8093FF', '#80D7FF', '#01E1FF', '#00FFE6']
+    let index = 0;
+
     let [displayContent, setDisplayContent] = useState(channels);
     if(filter) {
         displayContent = channels.filter((item) => {
@@ -26,11 +30,10 @@ export default function ChannelList({navigation}) {
         displayContent = displayContent.filter((item) => {
             return (item.name.toLowerCase().search(string.toLowerCase())>-1 || item.number.search(string)>-1 );
         });
-        console.log(displayContent);
-        setDisplayContent(displayContent);
     }
-    
-    console.log('search', search);
+    if(searchText) { 
+        search(searchText);
+    }
 
     return(
         <View style={styles.container}>
@@ -40,9 +43,16 @@ export default function ChannelList({navigation}) {
                         data = {displayContent}
                         renderItem={({item}) => {
                             let oprator = oprators[item.oprator - 1];
+                            if(index === 8) {
+                                index = 0;
+                            } else {
+                                index++;
+                            }
                             let category = categories[item.category - 1];
                             return(
-                                <View style={[ styles.card, styles.channelListingContainer ]}>
+                                <View style={[ styles.card, styles.channelListingContainer, {
+                                    backgroundColor: colors[index]
+                                }]}>
                                     <View style={styles.channelNumberContainer}>
                                         <Text style={styles.channelListHeader}>
                                             {item.name}
@@ -57,7 +67,7 @@ export default function ChannelList({navigation}) {
                                             name = 'radio-tower'
                                             color = '#fff'
                                             size = {20}
-                                        />
+                                            />
                                         <Text style={styles.channelListingText}>
                                             {oprator? (oprator.name.toString().length>8? oprator.name.substring(0, 8)+'....':oprator.name): ''}
                                         </Text>
@@ -68,7 +78,7 @@ export default function ChannelList({navigation}) {
                                             name = 'playlist-check'
                                             color = '#fff'
                                             size = {20}
-                                        />
+                                            />
 
                                         <Text style={styles.channelListingText}>
                                             {category? (category.name.toString().length>8? category.name.substring(0, 8)+'....':category.name): ''}
@@ -80,7 +90,7 @@ export default function ChannelList({navigation}) {
                                             name = 'tape-measure'
                                             color = '#fff'
                                             size = {20}
-                                        />
+                                            />
                                         <Text style={styles.channelListingText}>
                                             {item.hd==1? 'HD': 'Non HD'}
                                         </Text>
@@ -88,9 +98,9 @@ export default function ChannelList({navigation}) {
                                 </View>
                             )
                         }}
-                    />
+                        />
                 </View>
-            <Tabs navigation={ navigation } id={1}/>
+            {/* <Tabs navigation={ navigation } id={1}/> */}
         </View>
     )
 }

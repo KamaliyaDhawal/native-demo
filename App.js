@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import Navigation from './navigation/Drawer';
+import Navigation from './navigation/Tabs';
 import { globleStyle } from './assets/styles/global';
 
 const styles = globleStyle;

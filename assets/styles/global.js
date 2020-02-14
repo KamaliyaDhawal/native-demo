@@ -196,10 +196,11 @@ export const globleStyle = StyleSheet.create({
         shadowOffset: { width: 10, height: 10 },
         shadowOpacity: 0.8,
         shadowRadius: 2,  
-        elevation: 5
+        elevation: 5,
+        // backgroundColor: '#AF5C4C'
     },
     channelListingText: {
-        color: '#999',
+        color: 'black',
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -211,8 +212,38 @@ export const globleStyle = StyleSheet.create({
         padding: 10
     },
     channelListHeader: {
-        fontSize: 34,
+        fontSize: 30,
         color: '#fff',
-        fontWeight: 'bold'
+        fontWeight: '600'
+    },
+    modalContainer: {
+        flex: 1,
+        width: '66%',
+        backgroundColor: 'white'
+    },
+    modelBackgroundImage: {
+        flex: 1,
+        width: '100%'
+    },
+    selfRight: {
+        alignSelf: 'flex-end'
+    },
+    filterTitleConatiner: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10,
+        backgroundColor: '#EFF0F1',
+    },
+    filterTitleText: {
+        alignSelf: 'center',
+        fontSize: 24,
+        color: 'gray'
+    },
+    filterAccordianContainde: {
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        borderBottomColor: '#EFF0F1',
+        borderBottomWidth: 1,
     }
 })

@@ -4,9 +4,6 @@ import ChannelList from '../../screen/ChannelList';
 const screen={
     ChannelList: {
         screen: ChannelList,
-        navigationOptions: {
-            headerShown: false,
-        }
     }
 }
 

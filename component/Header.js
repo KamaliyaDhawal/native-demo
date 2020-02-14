@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Alert, TextInput } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { globleStyle } from '../assets/styles/global';
 
 export default function Header({ navigation, title, searchFn, subpage=false, icon }) {
     const styles = globleStyle;
+    const [searchText, changeSearchText] = useState('');
+    
     return(
         <View>
-            <View style={styles.headerContainer}>
+            {/* <View style={styles.headerContainer}>
                     <View>
-                        <AntDesign
+                        <FontAwesome
                             name = {icon? icon:"bars"}
-                            color = 'gray'
+                            color = '#fff'
                             size = {26}
                             style = {styles.headerIcon}
                             onPress={()=>{
@@ -21,7 +23,7 @@ export default function Header({ navigation, title, searchFn, subpage=false, ico
                                     navigation.openDrawer();
                                 }
                             }}
-                            />
+                        />
                     </View>
                     <View>
                         <Text style={styles.headerText}>
@@ -29,9 +31,9 @@ export default function Header({ navigation, title, searchFn, subpage=false, ico
                         </Text>
                     </View>
                     <View>
-                        <AntDesign
+                        <FontAwesome
                             name = "filter"
-                            color = 'gray'
+                            color = '#fff'
                             size = {32}
                             style = {styles.headerIcon}
                             onPress={()=>{
@@ -39,27 +41,34 @@ export default function Header({ navigation, title, searchFn, subpage=false, ico
                             }}
                         />
                     </View>
-            </View>
+            </View> */}
             <View style={styles.searchContainer}>
                 <View style={styles.searchSection}>
                     <TextInput
-                        placeholder = 'Search Channel name or number'
+                        placeholder = 'Search Channel name or'
                         style = {styles.searchInput}
-                        onChangeText = {(string) => {   searchFn? searchFn(string): null}}
+                        onChangeText = {(stringData) => {
+                            changeSearchText(stringData);
+                        }}
                         underlineColorAndroid = "transparent"
-                        autoFocus = {navigation.getParam('click')}
-                        onFocus = {
-                            () => {
-                                navigation.navigate('ChannelList', {click: true});
-                            }
-                        }
-
                     />
-                    <AntDesign
-                        name = "search1"
+                    <FontAwesome
+                        name = "search"
                         color = 'gray'
                         size = {24}
                         style={styles.searchIcon}
+                        onPress = {
+                            () => {
+                                if(searchText === '') {
+                                    Alert.alert(
+                                        'Search Error',
+                                        'Please insert name or number for search'
+                                    )
+                                } else {
+                                    navigation.navigate('ChannelList', { click: true, searchText });
+                                }
+                            }
+                        }
                     />
                 </View>
             </View>

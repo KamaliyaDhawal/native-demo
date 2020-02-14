@@ -1,19 +1,32 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
-
+import React, { useState } from 'react';
 import Tabs from '../component/Tabs';
-import Slider from '../component/Slider';
 import Header from '../component/Header';
+import Slider from '../component/Slider';
 import Devider from '../component/Devider';
+import { AntDesign } from '@expo/vector-icons';
+import { oprators } from '../source/oprators/data';
 import { globleStyle } from '../assets/styles/global';
 import { categories } from '../source/categories/data';
-import { oprators } from '../source/oprators/data';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+
+import FilterModal from '../modal/Filter';
+import FilderModal from '../modal/Filter';
 
 export default function Home({navigation}) {
     const styles = globleStyle;
+    const [modalState, setModalState] = useState(true);
+
+    function showModal(state) {
+        // alert('Hello');
+        return(
+            <FilderModal visible={true} />
+        );
+    }
+
     return(
         <View style={styles.container}>
+            {/* {showModal(modalState)} */}
+            {/* <FilderModal visible={true} /> */}
             <Header title="Channel Finder" navigation={navigation} />
             <View style={styles.textContainer}>
                 <ScrollView>
@@ -62,7 +75,6 @@ export default function Home({navigation}) {
                     />
                 </ScrollView>
             </View>
-            <Tabs navigation={ navigation } id={1}/>
         </View>
     )
 }

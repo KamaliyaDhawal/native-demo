@@ -53,7 +53,6 @@ export default function Slider({navigation, data, horizontal, page, sliderName})
                             <TouchableOpacity
                                 onPress={() => {
                                     let filter = createFilter(item);
-                                    console.log('filter', filter)
                                     navigation.navigate('ChannelList', { filter });
                                 }}
                             >

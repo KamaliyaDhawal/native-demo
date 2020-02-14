@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "demo",
-    "slug": "demo",
+    "name": "Channel Finder",
+    "slug": "ChannelFinder",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -13,9 +13,9 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/search.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#E05B49"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

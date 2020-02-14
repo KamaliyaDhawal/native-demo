@@ -15,7 +15,7 @@ export default function Favorite({navigation}) {
                     Favorite Screen
                 </Text>
             </View>
-            <Tabs navigation={ navigation } id={4}/>
+            {/* <Tabs navigation={ navigation } id={4}/> */}
         </View>
     )
 }

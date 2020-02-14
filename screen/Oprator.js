@@ -21,7 +21,7 @@ export default function Category({navigation}) {
                     navigation={navigation}
                 />
             </View>
-            <Tabs navigation={ navigation } id={2}/>
+            {/* <Tabs navigation={ navigation } id={2}/> */}
         </View>
     )
 }
