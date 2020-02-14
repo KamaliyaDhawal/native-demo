@@ -8,9 +8,7 @@ import { oprators } from '../source/oprators/data';
 import { globleStyle } from '../assets/styles/global';
 import { categories } from '../source/categories/data';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-
-import FilterModal from '../modal/Filter';
-import FilderModal from '../modal/Filter';
+import FilderModal from '../modal/Profile';
 
 export default function Home({navigation}) {
     const styles = globleStyle;
@@ -19,13 +17,13 @@ export default function Home({navigation}) {
     function showModal(state) {
         // alert('Hello');
         return(
-            <FilderModal visible={true} />
+            <FilderModal visible={true} navigation={navigation} />
         );
     }
 
     return(
         <View style={styles.container}>
-            {/* {showModal(modalState)} */}
+            {showModal(modalState)}
             {/* <FilderModal visible={true} /> */}
             <Header title="Channel Finder" navigation={navigation} />
             <View style={styles.textContainer}>

@@ -14,7 +14,7 @@ const screen={
                     marginLeft: 25
                 }}>
                     <FontAwesome
-                        name="user-circle-o"
+                        name="list"
                         size={28}
                         color='#fff'
                     />

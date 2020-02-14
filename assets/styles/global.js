@@ -162,7 +162,6 @@ export const globleStyle = StyleSheet.create({
         right: 10,
         bottom: 0,
         left: 0,
-        // justifyContent: 'flex-end',
         alignSelf: 'flex-start'
     },
     searchSection: {
@@ -197,7 +196,6 @@ export const globleStyle = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 2,  
         elevation: 5,
-        // backgroundColor: '#AF5C4C'
     },
     channelListingText: {
         color: 'black',
@@ -218,7 +216,7 @@ export const globleStyle = StyleSheet.create({
     },
     modalContainer: {
         flex: 1,
-        width: '66%',
+        width: '72%',
         backgroundColor: 'white'
     },
     modelBackgroundImage: {
@@ -227,6 +225,9 @@ export const globleStyle = StyleSheet.create({
     },
     selfRight: {
         alignSelf: 'flex-end'
+    },
+    selfLeft: {
+        alignSelf: 'flex-start'
     },
     filterTitleConatiner: {
         flexDirection: 'row',
@@ -241,9 +242,40 @@ export const globleStyle = StyleSheet.create({
     },
     filterAccordianContainde: {
         padding: 10,
+        marginRight: '20%',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
+    },
+    flatListListContainer: {
+        flexDirection: 'row',
+        marginLeft: 20,
+        marginRight: 20,
+    },
+    flatListListText: {
+        fontSize: 16,
+        color: 'gray',
+        marginTop: 5,
+        marginLeft: 5,
+    },
+    flatListTitleText: {
+        fontSize: 20,
+        color: 'gray'
+    },
+    flatListListWrapper: {
         borderBottomColor: '#EFF0F1',
+        borderBottomWidth: 4,
+    },
+    sidebarMenuListContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        padding: 2,
         borderBottomWidth: 1,
+        borderBottomColor: '#EFF0F1',
+        borderTopWidth: 1,
+        borderTopColor: '#EFF0F1'
+    },
+    favoritePageImage: {
+        width: width-50,
+        height: height-50
     }
 })

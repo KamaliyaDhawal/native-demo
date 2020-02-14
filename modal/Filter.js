@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Modal, Text, ImageBackground, FlatList, TouchableOpacity, CheckBox } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { View, Modal, Text, ImageBackground, FlatList, CheckBox, ScrollView, Button } from 'react-native';
 import { globleStyle } from '../assets/styles/global';
 import { categories } from '../source/categories/data';
 import { oprators } from '../source/oprators/data';
@@ -8,36 +7,61 @@ import { oprators } from '../source/oprators/data';
 export default function FilderModal({ visible }) {
     const styles = globleStyle;
     const [modalState, setModalState] = useState(visible);
-    const [categoryStatus, setCategoryState] = useState(true);
-    const [categoryIcon, setCategoryIcon] = useState('down');
-    const [opratorStatus, setOprarotState] = useState(true);
+    const [categoriesData, setCategoriesData] = useState(categories);
+    const [opratorsData, setOpratorsData] = useState(oprators);
+    const [opratorsSelectAll, setOpratorSelectAll] = useState(false);
+    const [categoriesSelectAll, setCategorySelectAll] = useState(false);
+    const [opratorsRefresh, setOpratorRefresh] = useState(false);
 
-    function renderList(data, state) {
-        alert(state);
-        if(state) {
-            return(
-                <FlatList
-                    data={data}
-                    renderItem={({item}) => {
-                        return(
-                            <View>
-                                <View style={{ flexDirection: 'row' }}>
-                                    {/* <CheckBox
-                                    value={item.key}
-                                    onValueChange={() => {alert('test')}}
-                                    /> */}
-                                    <Text style={{
-                                        fontSize: 16,
-                                        color: 'gray',
-                                        marginTop: 5,
-                                    }}>{item.name}</Text>
-                                </View>
-                            </View>
-                        )
-                    }}
-                />
-            )
-        }
+    function renderList(data, flag) {
+        return(
+            <FlatList
+                data={data}
+                extraData = {opratorsRefresh}
+                renderItem={({item}) => {
+                    return(
+                        <View style={styles.flatListListContainer}>
+                            <CheckBox
+                                value={data[(+item.key)-1].checked}
+                                onValueChange={(event) => {
+                                    data[((+item.key)-1)].checked = !data[((+item.key)-1)].checked;
+                                    if(flag === 'oprator') {
+                                        setOpratorsData(data);
+                                        const newData = data.filter((item) => {
+                                            return (item.checked === false);
+                                        });
+                                        if(newData.length > 0) {
+                                            setOpratorSelectAll(false);
+                                        } else {
+                                            setOpratorSelectAll(true);
+                                        }
+                                    } else if(flag === 'category') {
+                                        setCategoriesData(data);
+                                        const newData = data.filter((item) => {
+                                            return (item.checked === false);
+                                        });
+                                        if(newData.length > 0) {
+                                            setCategorySelectAll(false);
+                                        } else {
+                                            setCategorySelectAll(true);
+                                        }
+                                    }
+                                    setOpratorRefresh(!opratorsRefresh);
+                                }}
+                            />
+                            <Text style={styles.flatListListText}>
+                                {item.name}
+                            </Text>
+                        </View>
+                    )
+                }}
+                contentContainerStyle={{
+                    marginBottom: 5,
+                    borderTopColor: '#EFF0F1',
+                    borderTopWidth: 4,
+                }}
+            />
+        )
     }
 
     return(
@@ -46,70 +70,62 @@ export default function FilderModal({ visible }) {
             transparent={true}
         >
                 <View style={[styles.modalContainer, styles.selfRight]}>
-                    {/* <ImageBackground style={styles.modelBackgroundImage} source={require('../assets/images/game_bg.png')}> */}
+                    <ImageBackground style={styles.modelBackgroundImage} source={require('../assets/images/game_bg.png')}>
                         <View style={styles.filterTitleConatiner}>
                             <Text style={styles.filterTitleText}>
                                 Filter
                             </Text>
-                            <AntDesign
-                                name="doubleright"
-                                size={24}
+                            <Button
+                                title='apply'
+                                color='black'
                                 onPress={() => {setModalState(!modalState)}}
-                                color = 'gray'
-                                style={styles.selfRight}
                             />
                         </View>
 
-                        <TouchableOpacity 
-                            style={styles.filterAccordianContainde}
-                            onPress={() => {
-                                setCategoryState(!opratorStatus);
-                                // setCategoryIcon('up');
-                            }}
-                        >
-                            <Text style={{
-                                fontSize: 20,
-                                color: 'gray'
-                            }}>
-                                oprators
+                    <ScrollView>
+                        <View style={styles.filterAccordianContainde} >
+                            <CheckBox
+                                value={opratorsSelectAll}
+                                onValueChange={(event) => {
+                                    setOpratorSelectAll(!opratorsSelectAll);
+                                    const newData = opratorsData.map((item) => {
+                                        item.checked = !opratorsSelectAll;
+                                        return(item);
+                                    });
+                                    setOpratorsData(newData);
+                                    setOpratorRefresh(!opratorsRefresh);
+                                }}
+                            />
+                            <Text style={styles.flatListTitleText}>
+                                Oprators
                             </Text>
-                            <AntDesign
-                                name={categoryIcon}
-                                size={20}
-                                onPress={() => {setModalState(!modalState)}}
-                                color = 'gray'
-                                style={styles.selfRight}
-                            />
-                        </TouchableOpacity>
-                        <View>
-                            {renderList(oprators, opratorStatus)}
+                        </View>
+                        <View style={styles.flatListListWrapper}>
+                            {renderList(opratorsData, 'oprator')}
                         </View>
 
-                        <TouchableOpacity 
-                            style={styles.filterAccordianContainde}
-                            onPress={() => {
-                                setCategoryState(!categoryStatus);
-                                // setCategoryIcon('up');
-                            }}
-                        >
-                            <Text style={{
-                                fontSize: 20,
-                                color: 'gray'
-                            }}>
+                        <View style={styles.filterAccordianContainde}>
+                                <CheckBox
+                                    value={categoriesSelectAll}
+                                    onValueChange={(event) => {
+                                        setCategorySelectAll(!categoriesSelectAll);
+                                        const newData = categoriesData.map((item) => {
+                                            item.checked = !categoriesSelectAll;
+                                            return(item);
+                                        });
+                                        setCategoriesData(newData);
+                                        setOpratorRefresh(!opratorsRefresh);
+                                    }}
+                                />
+                            <Text style={styles.flatListTitleText}>
                                 Categories
                             </Text>
-                            <AntDesign
-                                name={categoryIcon}
-                                size={20}
-                                onPress={() => {setModalState(!modalState)}}
-                                color = 'gray'
-                                style={styles.selfRight}
-                            />
-                        </TouchableOpacity>
-                        <View>
-                            {renderList(categories, categoryStatus)}
                         </View>
-                    {/* </ImageBackground> */}
+                        <View style={styles.flatListListWrapper}>
+                            {renderList(categoriesData, 'category')}
+                        </View>
+                    </ScrollView>
+                    </ImageBackground>
                 </View>
         </Modal>
     )

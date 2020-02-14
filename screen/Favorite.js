@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 import Tabs from '../component/Tabs';
 import Header from '../component/Header';
@@ -12,7 +12,10 @@ export default function Favorite({navigation}) {
             <Header title="Favorites" navigation={navigation} />
             <View style={styles.textContainer}>
                 <Text>
-                    Favorite Screen
+                    <Image
+                        source={require('../assets/images/not-found.png')}
+                        style={styles.favoritePageImage}
+                    />
                 </Text>
             </View>
             {/* <Tabs navigation={ navigation } id={4}/> */}
