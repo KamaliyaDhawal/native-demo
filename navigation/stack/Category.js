@@ -11,17 +11,6 @@ const screen={
         screen: Category,
         navigationOptions: {
             title: 'Categories',
-            headerLeft: (
-                <View style={{
-                    marginLeft: 25
-                }}>
-                    <FontAwesome
-                        name="list"
-                        size={28}
-                        color='#fff'
-                    />
-                </View>
-            ),
         },
     },
     ChannelList: {

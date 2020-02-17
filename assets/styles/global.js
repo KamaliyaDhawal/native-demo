@@ -231,9 +231,9 @@ export const globleStyle = StyleSheet.create({
     },
     filterTitleConatiner: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         padding: 10,
         backgroundColor: '#EFF0F1',
+        justifyContent: 'space-between'
     },
     filterTitleText: {
         alignSelf: 'center',
@@ -275,7 +275,25 @@ export const globleStyle = StyleSheet.create({
         borderTopColor: '#EFF0F1'
     },
     favoritePageImage: {
-        width: width/8,
-        height: width/8
+        flex: 1,
+        width: width,
+        height: width,
+    },
+    favoriteContainer: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        padding: 30,
+    },
+    loginButton: {
+        backgroundColor: 'black',
+        padding: 10,
+        justifyContent: 'center',
+        alignContent: 'center',
+        borderRadius: 26
+    },
+    loginText: {
+        color: 'white',
+        alignSelf: 'center',
+        fontSize: 20,
     }
 })

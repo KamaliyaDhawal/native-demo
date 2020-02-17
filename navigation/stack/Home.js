@@ -10,17 +10,6 @@ const screen={
         screen: Home,
         navigationOptions: {
             title: 'Channel Finder',
-            headerLeft: (
-                <View style={{
-                    marginLeft: 25
-                }}>
-                    <FontAwesome
-                        name="list"
-                        size={28}
-                        color='#fff'
-                    />
-                </View>
-            ),
         },
     },
     ChannelList: {

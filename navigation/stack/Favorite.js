@@ -9,17 +9,6 @@ const screen={
         screen: Favorite,
         navigationOptions: {
             title: 'Favorites',
-            headerLeft: (
-                <View style={{
-                    marginLeft: 25
-                }}>
-                    <FontAwesome
-                        name="list"
-                        size={28}
-                        color='#fff'
-                    />
-                </View>
-            ),
         },
     }
 }

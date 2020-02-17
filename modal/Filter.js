@@ -4,9 +4,8 @@ import { globleStyle } from '../assets/styles/global';
 import { categories } from '../source/categories/data';
 import { oprators } from '../source/oprators/data';
 
-export default function FilderModal({ visible }) {
+export default function FilderModal({ visible, navigation ,modalClose }) {
     const styles = globleStyle;
-    const [modalState, setModalState] = useState(visible);
     const [categoriesData, setCategoriesData] = useState(categories);
     const [opratorsData, setOpratorsData] = useState(oprators);
     const [opratorsSelectAll, setOpratorSelectAll] = useState(false);
@@ -66,8 +65,9 @@ export default function FilderModal({ visible }) {
 
     return(
         <Modal
-            visible={modalState}
+            visible={visible}
             transparent={true}
+            animationType={'slide'}
         >
                 <View style={[styles.modalContainer, styles.selfRight]}>
                     <ImageBackground style={styles.modelBackgroundImage} source={require('../assets/images/game_bg.png')}>
@@ -78,7 +78,7 @@ export default function FilderModal({ visible }) {
                             <Button
                                 title='apply'
                                 color='black'
-                                onPress={() => {setModalState(!modalState)}}
+                                onPress={()=> {modalClose();}}
                             />
                         </View>
 

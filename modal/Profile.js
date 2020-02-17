@@ -6,14 +6,14 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const width = Math.round(Dimensions.get('window').width);
 
-export default function FilderModal({ visible, navigation }) {
+export default function ProfileModal({ visible, navigation ,modalClose }) {
     const styles = globleStyle;
-    const [modalState, setModalState] = useState(visible);
-
+    
     return(
         <Modal
-            visible={modalState}
+            visible={visible}
             transparent={true}
+            animationType="slide"
         >
                 <View style={[styles.modalContainer, styles.selfLeft]}>
                     <ImageBackground style={styles.modelBackgroundImage} source={require('../assets/images/game_bg.png')}>
@@ -29,14 +29,12 @@ export default function FilderModal({ visible, navigation }) {
                                     style={{
                                         marginTop: 5
                                     }}
-                                    onPress={()=> {
-                                        setModalState(false);
-                                    }}
+                                    onPress={()=> {modalClose();}}
                                 />
                                 <Text style={{
                                     color: 'gray',
                                     fontSize: 28,
-                                    alignSelf: 'center',
+                                    marginLeft: 16
                                 }}>Channel Finder</Text>
                             </View>
                             <Image
@@ -55,14 +53,14 @@ export default function FilderModal({ visible, navigation }) {
 
                         }}>
                             <TouchableOpacity style={styles.sidebarMenuListContainer} onPress={()=> {
-                                setModalState(false);
+                                modalClose();
                                 navigation.navigate('Home');
                             }} >
                                 <MaterialCommunityIcons name='home' size={26} color='gray' />
                                 <Text style={[ styles.filterTitleText, {marginLeft: 8}]}>Home</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.sidebarMenuListContainer} onPress={()=> {
-                                setModalState(false);
+                                modalClose();
                                 navigation.navigate('Oprator');
                             }} >
                                 <MaterialCommunityIcons name='tower-beach' size={26} color='gray' />
@@ -71,14 +69,14 @@ export default function FilderModal({ visible, navigation }) {
                                     </Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.sidebarMenuListContainer} onPress={()=> {
-                                setModalState(false);
+                                modalClose();
                                 navigation.navigate('Category');
                             }} >
                                 <MaterialCommunityIcons name='view-grid' size={26} color='gray' />
                                 <Text style={[ styles.filterTitleText, {marginLeft: 8}]}>Categories</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.sidebarMenuListContainer} onPress={()=> {
-                                setModalState(false);
+                                modalClose();
                                 navigation.navigate('Favorite');
                             }} >
                                 <MaterialCommunityIcons name='heart' size={26} color='gray' />

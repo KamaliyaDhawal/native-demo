@@ -10,17 +10,6 @@ const screen={
         screen: Oprator,
         navigationOptions: {
             title: 'Oprators',
-            headerLeft: (
-                <View style={{
-                    marginLeft: 25
-                }}>
-                    <FontAwesome
-                        name="list"
-                        size={28}
-                        color='#fff'
-                    />
-                </View>
-            ),
         },
     },
     ChannelList: {
